@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card-column{
+    text-align: center;
+    margin: 25px -10px 5px;
+}
+
+.card {
+    padding-top: 20px;
+    border: 1px solid rgb(0,123,255); 
+}
+
+.card-subtitle{
+    margin-bottom: 25px;
+}
+
+.yellow-card{
+    border: 1px solid rgb(255,193,7); 
+}
+
+.card-title {
+    margin-bottom: 25px;
+}
+
+.container-subtitles {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+.containerPagarTotal{
+    background-color: rgb(204,229,255);
+    border-radius: 5px;
+    justify-content: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.containerPagarTotal p {
+    margin-bottom: 0;
+    padding-left: 10px;
+}
+
+.green-btn {
+    background-color: rgb(151,201,62);
+    color: white;
+    margin-bottom: 25px;
+}
+
+.footer{
+    background-color:rgb(29,62,69);
+    
+}
+
+.footer li a{
+    color:white !important;
+    text-decoration: none;
+}
+
+.footer ul.list-inline {
+    display: flex;
+    justify-content: center;
+    }
+
+    @media (max-width: 576px) {
+    .footer ul.list-inline {
+        flex-wrap: wrap;
+    }
+
+    .footer ul.list-inline li {
+        flex: 0 0 50%;
+    }
+}
+
+/* Custom CSS for the modal window */
+
+/* Modal */
+.modal {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Modal content */
+  .modal-content {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Modal header */
+  .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  /* Modal title */
+  .modal-title {
+    color: #000;
+    font-weight: bold;
+  }
+
+  .personal-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start; 
+  }
+  
+  .personal-info p {
+        margin: 15;
+  }
+  
+  .personal-info span {
+        text-align: right;
+  }
+  
+  /* Modal footer */
+  .modal-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  /* Close button */
+  #cancelarButton {
+    color: white;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+  
+  #cancelarButton:hover {
+    opacity: 1;
+  }
+  
+  #confirmarButton {
+    background-color: rgb(151,201,62);
+    color: #fff;
+    border: none;
+  }
+  
+  #confirmarButton:hover {
+    background-color: rgb(158, 238, 19);
+  }

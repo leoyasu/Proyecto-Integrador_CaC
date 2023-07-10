@@ -1,0 +1,303 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container1 {
+    position: relative;
+    background-size: cover;
+    overflow: hidden;
+    height: 100vh;
+}
+.background-image {
+    width: 100%;
+    height: 100%;
+    background: url("../assets/images/ba1.jpg");
+    background-size: cover;
+    filter: brightness(40%);
+    z-index: -1;
+}
+
+.text-container {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 50%;
+    padding: 20px;
+    color: white;
+    text-align: right;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button-compra {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.button-orador {
+    border: 1px solid;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.flex-container-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.titulo-cards {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    padding: 10px;
+    color: #000000;
+    text-transform: uppercase;
+}
+
+.titulo-cards-1{
+    font-size: 8px;
+    font-weight: 400;
+    padding: 8px;
+}
+
+.titulo-cards-2{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.card {
+    width: 280px;
+    padding-right: 25px;
+    border: 2px solid , rgb(223,223,223);
+  }
+
+.card h4 {
+    padding-bottom: 15px;
+}
+
+.card p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    word-spacing: 2px;
+    color: hsl(0, 0%, 0%);
+}
+
+.card-JS{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(254, 193, 7);
+    border: none;
+    color: black;
+    padding: 2px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+.card-RA{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(23, 162, 183);
+    border: none;
+    color: white;
+    padding: 2px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+.card-NG{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(107, 118, 124);
+    border: none;
+    color: white;
+    padding: 2px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+.card-SU{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(220, 53, 70);
+    border: none;
+    color: white;
+    padding: 2px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+.container-hon {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: auto;
+    padding-top: 20px;
+  }
+  
+  .image-hon {
+    flex: 0 0 50%;
+  }
+  
+  .image-hon img {
+    width: 100%;
+    padding-right: 1px;
+  }
+  
+  .text {
+    flex: 1;
+    background-color: rgb(53,58,64);
+    color: white;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 5px;
+  }
+
+  .text p {
+    font-size: 13px;
+    font-weight: 100;
+    padding-top: 5px;
+  }
+
+  .container-conoceMas {
+    padding-top: 20px;
+  }
+
+  .button-conoceMas {
+    border: 1px solid;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 6px;
+    padding: 7px 10px;
+}
+
+.titulo-orador {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    color: #000000;
+    text-transform: uppercase;
+}
+
+.titulo-orador-1{
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.titulo-orador-2{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.anotar {
+    width: 50%;
+    margin: -40px auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 75px;
+}
+.anotar .anotar-subtitulo{
+    font-weight: 600;
+}
+.anotar .anotar-recordatorio{
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.anotar-nombre {
+    width: 47%;
+    margin-bottom: 15px;
+}
+
+.anotar-apellido {
+    width: 47%;
+    margin-left: 5.2%;
+}
+
+.anotar-texto {
+    flex-direction: row;
+    width: 100%;
+}
+
+.anotar-boton {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #89d82ece;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+@media 
+(max-width: 992px) {
+    .anotar-nombre {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .anotar-apellido {
+        width: 100%;
+        margin-bottom: 15px;
+        margin-left: 0;
+    }
+}
+
+.footer{
+    background-color:rgb(29,62,69);
+    
+}
+
+.footer li a{
+    color:white !important;
+    text-decoration: none;
+}
+
+.footer ul.list-inline {
+    display: flex;
+    justify-content: center;
+    }
+
+    @media (max-width: 576px) {
+    .footer ul.list-inline {
+        flex-wrap: wrap;
+    }
+
+    .footer ul.list-inline li {
+        flex: 0 0 50%;
+    }
+}
