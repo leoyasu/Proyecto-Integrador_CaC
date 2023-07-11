@@ -4,36 +4,40 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
-import com.proyectointegrador.entidad.Persona;
 import com.proyectointegrador.config.Conexion;
+import com.proyectointegrador.entidad.Ticket;
 
-public class personaDAOImpl implements personaDAO {
+public class ticketDAOImpl implements ticketDAO{
+
+	private static final String DELETE = "DELETE FROM tickets WHERE dni=?";
+	private static final String FIND_ALL = "SELECT * FROM tickets ORDER BY ticket_id";
+	private static final String FIND_BY_DNI = "SELECT * FROM tickets WHERE dni=?";
+	private static final String INSERT = "INSERT INTO tickets(dni, cantidad, categoria, fecha,"
+			+ "monto,estado) VALUES(?, ?, ?, ?, ? ,?)";
+	private static final String UPDATE = "UPDATE tickets SET dni=?, cantidad=?, categoria=?, "
+			+ "fecha=?, monto=?, estado=? WHERE dni=?";
 	
-	private static final String DELETE = "DELETE FROM personas WHERE dni=?";
-	private static final String FIND_ALL = "SELECT * FROM personas ORDER BY dni";
-	private static final String FIND_BY_DNI = "SELECT * FROM personas WHERE dni=?";
-	private static final String INSERT = "INSERT INTO personas(dni, nombre, apellido, correo) VALUES(?, ?, ?, ?)";
-	private static final String UPDATE = "UPDATE personas SET nombre=?, apellido=?, correo=? WHERE dni=?";
-	
-	public personaDAOImpl () {
+	public ticketDAOImpl () {
 		
 	}
 	
 	@Override
-	public boolean insert(Persona persona) {
+	public boolean insert(Ticket ticket) {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		
 		try {
 			conn = getConexion();
 			stmt = conn.prepareStatement(INSERT);
-			stmt.setInt(1, persona.getDni());
-			stmt.setString(2, persona.getNombre());
-			stmt.setString(3, persona.getApellido());
-			stmt.setString(4, persona.getCorreo());
+			stmt.setInt(1, ticket.getDni());
+			stmt.setInt(2, ticket.getCantidad());
+			stmt.setString(3, ticket.getCategoria().name());
+			stmt.setTimestamp(4, ticket.getFecha());
+			stmt.setInt(5, ticket.getMonto());
+			stmt.setBoolean(6, ticket.isEstado());
 			
 			int result = stmt.executeUpdate();
 			
@@ -52,10 +56,10 @@ public class personaDAOImpl implements personaDAO {
 	}
 
 	@Override
-	public List<Persona> getAllPersonas() {
+	public List<Ticket> getAllTickets() {
 		Connection conn = null;
 		PreparedStatement stmt = null;
-		List<Persona> listaPersonas = new ArrayList<Persona>();
+		List<Ticket> listaPersonas = new ArrayList<Ticket>();
 		
 		try {
 			conn = getConexion();
@@ -64,13 +68,19 @@ public class personaDAOImpl implements personaDAO {
 			ResultSet rs = stmt.executeQuery();
 			
 			while (rs.next()) {
-				Persona persona = new Persona();
-				persona.setDni(rs.getInt("dni"));
-				persona.setNombre(rs.getString("nombre"));
-				persona.setApellido(rs.getString("apellido"));
-				persona.setCorreo(rs.getString("correo"));
+				Ticket ticket = new Ticket();
+				ticket.setTicketId(rs.getInt("ticket_id "));
+				ticket.setDni(rs.getInt("dni"));
+				ticket.setCantidad(rs.getInt("cantidad"));
 				
-				listaPersonas.add(persona);
+				String categoriaStr = rs.getString("categoria");
+                Ticket.Categoria.valueOf(categoriaStr);
+                
+				ticket.setFecha(rs.getTimestamp("fecha"));
+				ticket.setMonto(rs.getInt("monto"));
+				ticket.setEstado(rs.getBoolean("estado"));
+				
+				listaPersonas.add(ticket);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -83,10 +93,10 @@ public class personaDAOImpl implements personaDAO {
 	}
 
 	@Override
-	public Persona getPersonaByDni(int dni) {
+	public Ticket getTicketByDNI(int dni) {
 		Connection conn = null;
 		PreparedStatement stmt = null;
-		Persona persona = null;
+		Ticket ticket = null;
 		
 		try {
 			conn = getConexion();
@@ -96,11 +106,17 @@ public class personaDAOImpl implements personaDAO {
 			ResultSet rs = stmt.executeQuery();
 			
 			if (rs.next()) {
-				persona = new Persona();
-				persona .setDni(rs.getInt("dni"));
-				persona.setNombre(rs.getString("nombre"));
-				persona.setApellido(rs.getString("apellido"));
-				persona.setCorreo(rs.getString("correo"));
+				ticket = new Ticket();
+				ticket.setTicketId(rs.getInt("ticket_id "));
+				ticket.setDni(rs.getInt("dni"));
+				ticket.setCantidad(rs.getInt("cantidad"));
+				
+				String categoriaStr = rs.getString("categoria");
+                Ticket.Categoria.valueOf(categoriaStr);
+                
+				ticket.setFecha(rs.getTimestamp("fecha"));
+				ticket.setMonto(rs.getInt("monto"));
+				ticket.setEstado(rs.getBoolean("estado"));
 			} 
 			
 		} catch (SQLException e) {
@@ -109,21 +125,23 @@ public class personaDAOImpl implements personaDAO {
 			close(stmt);
 			close(conn);
 		}
-		return persona;
+		return ticket;
 	}
 
 	@Override
-	public boolean update(Persona persona) {
+	public boolean update(Ticket ticket) {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		
 		try {
 			conn = getConexion();
 			stmt = conn.prepareStatement(UPDATE);
-			stmt.setInt(1, persona.getDni());
-			stmt.setString(2, persona.getNombre());
-			stmt.setString(3, persona.getApellido());
-			stmt.setString(4, persona.getCorreo());
+			stmt.setInt(1, ticket.getDni());
+			stmt.setInt(2, ticket.getCantidad());
+			stmt.setString(3, ticket.getCategoria().name());
+			stmt.setTimestamp(4, ticket.getFecha());
+			stmt.setInt(5, ticket.getMonto());
+			stmt.setBoolean(6, ticket.isEstado());
 			
 			int result = stmt.executeUpdate();
 			
@@ -195,4 +213,5 @@ public class personaDAOImpl implements personaDAO {
 			}
 		}
 	}
+
 }
