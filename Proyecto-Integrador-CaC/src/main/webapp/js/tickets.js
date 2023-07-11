@@ -2,6 +2,7 @@ var form = document.getElementById("myForm");
 var nombre = document.getElementById("inputNombre");
 var apellido = document.getElementById("inputApellido");
 var correo = document.getElementById("inputCorreo");
+var dni = document.getElementById("inputDNI");
 var inputCantidad = document.getElementById('inputCantidad');
 var inputCategoria = document.getElementById('inputCategoria');
 var totalApagar = document.getElementById('totalApagar');
@@ -24,20 +25,28 @@ btnReset.addEventListener("click",resetearFormulario);
 
 function validarFormulario(){
 
-  if (contieneNumeros(nombre.value)) {
-    alert("Nombre no debe contener números");
+  if (contieneNumeros(nombre.value) || !nombre.value) {
+    alert("Ingrese un nombre válido");
     nombre.focus();
     return false;
-  } else if (contieneNumeros(apellido.value)) {
-    alert("Apellido no debe contener números");
+  }
+  
+  if (contieneNumeros(apellido.value) || !apellido.value) {
+    alert("Ingrese un apellido válido");
     apellido.focus();
     return false;
   }
-
+   
   if (!esCorreoValido(correo.value)) {
     alert("Ingrese una dirección de correo válida");
     correo.focus();
     return false;
+  }
+  
+  if (!esDNIvalido(dni.value)){
+	  alert("Ingrese un DNI válido");
+	  dni.focus();
+	  return false;
   }
 
   if (!esCantidadValida(inputCantidad.value)) {
@@ -51,14 +60,19 @@ function validarFormulario(){
   return true;
 }
 
+function contieneNumeros(input) {
+  var numberRegex = /\d/;
+  return numberRegex.test(input);
+}
+
 function esCorreoValido(email) {
   var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
 
-function contieneNumeros(input) {
-  var numberRegex = /\d/;
-  return numberRegex.test(input);
+function esDNIvalido(dni) {
+  var dniRegex = /^\d{1,8}(?:\.\d+)?$/;
+  return dniRegex.test(dni);
 }
 
 function esCantidadValida(cantidad) {
