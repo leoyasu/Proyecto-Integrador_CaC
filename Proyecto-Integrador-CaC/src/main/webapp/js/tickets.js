@@ -112,12 +112,12 @@ function mostrarModal(){
 }
 
 function rellenarCamposModal(){
-  nombreCompra.textContent = nombre.value;
-  apellidoCompra.textContent = apellido.value;
-  correoCompra.textContent = correo.value;
-  inputCantidadCompra.textContent = inputCantidad.value;
-  inputCategoriaCompra.textContent = inputCategoria.value;
-  totalApagarCompras.textContent = '$'+total;
+  nombreCompra.value = nombre.value;
+  apellidoCompra.value = apellido.value;
+  correoCompra.value = correo.value;
+  inputCantidadCompra.value = inputCantidad.value;
+  inputCategoriaCompra.value = inputCategoria.value;
+  totalApagarCompras.value = '$'+total;
 }
 
 /* cancelar Modal */

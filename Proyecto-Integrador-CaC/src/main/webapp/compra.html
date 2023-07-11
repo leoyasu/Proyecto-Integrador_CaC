@@ -124,16 +124,9 @@
           </form>
         </div>
     </div>
-
-    <!--modal oculto-->
-    <div class="modal fade" id="resumenModal" tabindex="-1" data-bs-keyboard="false" data-backdrop="static" aria-labelledby="summaryModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-        <div class="modal-content">
-          <!--contenido-->
-          <div class="modal-header">
-            <h5 class="modal-title" id="labelResumen">Resumen de compra</h5>
-          </div>
-          <div class="modal-body">
+	
+	
+	<!--  
             <div class="personal-info">
               <p>Nombre:</p> 
               <span id="nombreCompra"></span>
@@ -157,11 +150,47 @@
             <div class="personal-info">
               <p>Total:</p>
               <span id="totalApagarCompras"></span>
-            </div>
+            </div> -->
+            
+    <!--modal oculto-->
+    <div class="modal fade" id="resumenModal" tabindex="-1" data-bs-keyboard="false" data-backdrop="static" aria-labelledby="summaryModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <!--contenido-->
+          <div class="modal-header">
+            <h5 class="modal-title" id="labelResumen">Resumen de compra</h5>
+          </div>
+          <div class="modal-body">
+            <form id="myForm" action="comprar_ticktes.jsp" method="post">
+			    <div class="personal-info">
+			        <label for="nombreCompra">Nombre:</label>
+			        <input class="formInput" type="text" id="nombreCompra" name="nombreCompra" readonly>
+			    </div>
+			    <div class="personal-info">
+			        <label for="apellidoCompra">Apellido:</label>
+			        <input class="formInput" type="text" id="apellidoCompra" name="apellidoCompra" readonly>
+			    </div>
+			    <div class="personal-info">
+			        <label for="correoCompra">Correo:</label>
+			        <input class="formInput" type="email" id="correoCompra" name="correoCompra" readonly>
+			    </div>
+			    <div class="personal-info">
+			        <label for="inputCantidadCompra">Cant. de entradas:</label>
+			        <input class="formInput" type="text" id="inputCantidadCompra" name="inputCantidadCompra" readonly>
+			    </div>
+			    <div class="personal-info">
+			        <label for="inputCategoriaCompra">Categoria:</label>
+			        <input class="formInput" type="text" id="inputCategoriaCompra" name="inputCategoriaCompra" readonly>
+			    </div>
+			    <div class="personal-info">
+			        <label for="totalApagarCompras">Total:</label>
+			        <input class="formInput" type="text" id="totalApagarCompras" name="totalApagarCompras" readonly>
+			    </div>
+			</form>   
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal"id="cancelarButton">Cancelar</button>
-            <button type="button" class="btn btn-primary" id="confirmarButton">Confirmar Compra</button> 
+            <button type="submit" class="btn btn-primary" id="confirmarButton">Confirmar Compra</button> 
           </div>
         </div>
       </div>

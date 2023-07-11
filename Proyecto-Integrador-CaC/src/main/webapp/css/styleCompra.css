@@ -106,27 +106,13 @@ label {
     color: #000;
     font-weight: bold;
   }
-
-  .personal-info {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start; 
-  }
-  
-  .personal-info p {
-        margin: 15;
-  }
-  
-  .personal-info span {
-        text-align: right;
-  }
   
   /* Modal footer */
   .modal-footer {
     background-color: #f8f9fa;
     border-top: 1px solid #dee2e6;
   }
-  
+  	
   /* Close button */
   #cancelarButton {
     color: white;
