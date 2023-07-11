@@ -1,4 +1,4 @@
-package model;
+package com.proyectointegrador.entidad;
 
 public class Persona {
 	
