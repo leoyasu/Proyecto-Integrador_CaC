@@ -107,6 +107,16 @@ label {
     font-weight: bold;
   }
   
+   .personal-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start; 
+  }
+  
+  .personal-info input {
+        text-align: right;
+  }
+  
   /* Modal footer */
   .modal-footer {
     background-color: #f8f9fa;
