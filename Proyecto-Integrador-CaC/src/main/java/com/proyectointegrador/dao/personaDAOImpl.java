@@ -97,7 +97,7 @@ public class personaDAOImpl implements personaDAO {
 			
 			if (rs.next()) {
 				persona = new Persona();
-				persona .setDni(rs.getInt("dni"));
+				persona.setDni(rs.getInt("dni"));
 				persona.setNombre(rs.getString("nombre"));
 				persona.setApellido(rs.getString("apellido"));
 				persona.setCorreo(rs.getString("correo"));

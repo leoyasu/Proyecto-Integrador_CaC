@@ -6,7 +6,7 @@ public class Ticket {
 	private int ticketId;
     private int dni;
     private int cantidad;
-    private Categoria categoria;
+    private String categoria;
     private Timestamp fecha;
     private int monto;
     private boolean estado;
@@ -15,7 +15,7 @@ public class Ticket {
     	
     }
     
-	public Ticket(int ticketId, int dni, int cantidad, Categoria categoria, Timestamp fecha, int monto, boolean estado) {
+	public Ticket(int ticketId, int dni, int cantidad, String categoria, Timestamp fecha, int monto, boolean estado) {
 		this.ticketId = ticketId;
 		this.dni = dni;
 		this.cantidad = cantidad;
@@ -49,11 +49,11 @@ public class Ticket {
 		this.cantidad = cantidad;
 	}
 
-	public Categoria getCategoria() {
+	public String getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(Categoria categoria) {
+	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
 
@@ -80,8 +80,4 @@ public class Ticket {
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
-    
-	public enum Categoria {
-        ESTUDIANTE, TRAINEE, JUNIOR
-    }
 }

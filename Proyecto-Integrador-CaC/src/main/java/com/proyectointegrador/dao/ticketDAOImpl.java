@@ -34,7 +34,7 @@ public class ticketDAOImpl implements ticketDAO{
 			stmt = conn.prepareStatement(INSERT);
 			stmt.setInt(1, ticket.getDni());
 			stmt.setInt(2, ticket.getCantidad());
-			stmt.setString(3, ticket.getCategoria().name());
+			stmt.setString(3, ticket.getCategoria());
 			stmt.setTimestamp(4, ticket.getFecha());
 			stmt.setInt(5, ticket.getMonto());
 			stmt.setBoolean(6, ticket.isEstado());
@@ -72,10 +72,7 @@ public class ticketDAOImpl implements ticketDAO{
 				ticket.setTicketId(rs.getInt("ticket_id "));
 				ticket.setDni(rs.getInt("dni"));
 				ticket.setCantidad(rs.getInt("cantidad"));
-				
-				String categoriaStr = rs.getString("categoria");
-                Ticket.Categoria.valueOf(categoriaStr);
-                
+                ticket.setCategoria(rs.getString("categoria"));
 				ticket.setFecha(rs.getTimestamp("fecha"));
 				ticket.setMonto(rs.getInt("monto"));
 				ticket.setEstado(rs.getBoolean("estado"));
@@ -110,10 +107,7 @@ public class ticketDAOImpl implements ticketDAO{
 				ticket.setTicketId(rs.getInt("ticket_id "));
 				ticket.setDni(rs.getInt("dni"));
 				ticket.setCantidad(rs.getInt("cantidad"));
-				
-				String categoriaStr = rs.getString("categoria");
-                Ticket.Categoria.valueOf(categoriaStr);
-                
+				ticket.setCategoria(rs.getString("categoria"));
 				ticket.setFecha(rs.getTimestamp("fecha"));
 				ticket.setMonto(rs.getInt("monto"));
 				ticket.setEstado(rs.getBoolean("estado"));
@@ -138,7 +132,7 @@ public class ticketDAOImpl implements ticketDAO{
 			stmt = conn.prepareStatement(UPDATE);
 			stmt.setInt(1, ticket.getDni());
 			stmt.setInt(2, ticket.getCantidad());
-			stmt.setString(3, ticket.getCategoria().name());
+			stmt.setString(3, ticket.getCategoria());
 			stmt.setTimestamp(4, ticket.getFecha());
 			stmt.setInt(5, ticket.getMonto());
 			stmt.setBoolean(6, ticket.isEstado());
