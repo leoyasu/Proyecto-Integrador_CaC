@@ -7,7 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+
+<%
+	String nombre = request.getParameter("nombreCompra");
+	String apellido = request.getParameter("apellidoCompra");
+	String correo = request.getParameter("correoCompra");
+	String cantidad = request.getParameter("inputCantidadCompra");
+	String categoria = request.getParameter("inputCategoriaCompra");
+%>
 	
 </body>
 </html>

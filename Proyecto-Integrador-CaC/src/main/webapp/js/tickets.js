@@ -1,4 +1,3 @@
-var form = document.getElementById("myForm");
 var nombre = document.getElementById("inputNombre");
 var apellido = document.getElementById("inputApellido");
 var correo = document.getElementById("inputCorreo");
@@ -12,6 +11,7 @@ var total = 0;
 var nombreCompra = document.getElementById("nombreCompra");
 var apellidoCompra = document.getElementById("apellidoCompra");
 var correoCompra = document.getElementById("correoCompra");
+var dniCompra = document.getElementById("dniCompra");
 var inputCantidadCompra = document.getElementById('inputCantidadCompra');
 var inputCategoriaCompra = document.getElementById('inputCategoriaCompra');
 var totalApagarCompras = document.getElementById('totalApagarCompras');
@@ -115,6 +115,7 @@ function rellenarCamposModal(){
   nombreCompra.value = nombre.value;
   apellidoCompra.value = apellido.value;
   correoCompra.value = correo.value;
+  dniCompra.value = dni.value;
   inputCantidadCompra.value = inputCantidad.value;
   inputCategoriaCompra.value = inputCategoria.value;
   totalApagarCompras.value = '$'+total;

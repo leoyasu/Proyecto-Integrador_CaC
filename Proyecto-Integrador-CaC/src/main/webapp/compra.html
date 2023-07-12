@@ -161,7 +161,7 @@
             <h5 class="modal-title" id="labelResumen">Resumen de compra</h5>
           </div>
           <div class="modal-body">
-            <form id="myForm" action="comprar_ticktes.jsp" method="post">
+            <form id="myForm" action="comprar_tickets.jsp" method="post">
 			    <div class="personal-info">
 			        <label for="nombreCompra">Nombre:</label>
 			        <input type="text" id="nombreCompra" name="nombreCompra" readonly>
@@ -173,6 +173,10 @@
 			    <div class="personal-info">
 			        <label for="correoCompra">Correo:</label>
 			        <input type="email" id="correoCompra" name="correoCompra" readonly>
+			    </div>
+			    <div class="personal-info">
+			        <label for="dniCompra">DNI:</label>
+			        <input type="text" id="dniCompra" name="dniCompra" readonly>
 			    </div>
 			    <div class="personal-info">
 			        <label for="inputCantidadCompra">Entradas:</label>
@@ -190,7 +194,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal"id="cancelarButton">Cancelar</button>
-            <button type="submit" class="btn btn-primary" id="confirmarButton">Confirmar Compra</button> 
+            <button type="submit" form="myForm" class="btn btn-primary" id="confirmarButton">Confirmar Compra</button> 
           </div>
         </div>
       </div>
