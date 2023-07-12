@@ -118,7 +118,7 @@ function rellenarCamposModal(){
   dniCompra.value = dni.value;
   inputCantidadCompra.value = inputCantidad.value;
   inputCategoriaCompra.value = inputCategoria.value;
-  totalApagarCompras.value = '$'+total;
+  totalApagarCompras.value = total;
 }
 
 /* cancelar Modal */
