@@ -147,8 +147,8 @@
 						      <div style="margin: 60px;" id="bajaTicket">
 						        <form id="formBaja" action="bajaTickets.jsp" method="post">
 						          <input type="hidden" id="inputDNI2" name="inputDNI2" class="form-control" readonly value="<%= persona.getDni() %>" />
-						          <button type="submit" id="bajabtn" class="btn btn-secondary">Botón de arrepentimiento</button>
 						        </form>
+						        <button onclick="confirmarBaja()" id="bajabtn" class="btn btn-secondary">Botón de arrepentimiento</button>
 						      </div>
 						    </div>
 						  </div>
@@ -185,6 +185,13 @@
     function redirigirOrigen() {
         window.location.href = "modificarTickets.jsp";
     }
+    
+    function confirmarBaja() {
+        if (confirm("Esta seguro que desea cancelar sus tickets?")) {
+          
+          document.getElementById("formBaja").submit();
+        }
+      }
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
