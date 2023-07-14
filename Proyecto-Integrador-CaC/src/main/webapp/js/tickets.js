@@ -18,10 +18,18 @@ var totalApagarCompras = document.getElementById('totalApagarCompras');
 /* Modal end*/
 
 const btnCompra = document.getElementById('compra-btn');
-btnCompra.addEventListener("click",validarFormulario);
+if (btnCompra !== null){
+	btnCompra.addEventListener("click",validarFormulario);
+}
+
 
 const btnReset = document.getElementById('reset-btn');
+if (btnReset !== null){
 btnReset.addEventListener("click",resetearFormulario);
+}
+
+const modbtn = document.getElementById('modbtn');
+modbtn.addEventListener("click",validarFormularioMod);
 
 function validarFormulario(){
 
@@ -122,8 +130,34 @@ function rellenarCamposModal(){
 }
 
 /* cancelar Modal */
-document.getElementById('cancelarButton').addEventListener('click', function() {
-  document.getElementById('resumenModal').classList.remove('show');
-  document.getElementById('resumenModal').style.display = 'none';
-  document.body.classList.remove('modal-open');
+if (document.getElementById('cancelarButton') !== null) {
+	document.getElementById('cancelarButton').addEventListener('click', function() {
+ 	document.getElementById('resumenModal').classList.remove('show');
+  	document.getElementById('resumenModal').style.display = 'none';
+  	document.body.classList.remove('modal-open');
 });
+}
+
+
+function validarFormularioMod(){
+
+  if (contieneNumeros(nombre.value) || !nombre.value) {
+    alert("Ingrese un nombre válido");
+    nombre.focus();
+    return false;
+  }
+  
+  if (contieneNumeros(apellido.value) || !apellido.value) {
+    alert("Ingrese un apellido válido");
+    apellido.focus();
+    return false;
+  }
+   
+  if (!esCorreoValido(correo.value)) {
+    alert("Ingrese una dirección de correo válida");
+    correo.focus();
+    return false;
+  }
+
+	return true;
+}

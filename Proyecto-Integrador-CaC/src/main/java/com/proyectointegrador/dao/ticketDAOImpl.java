@@ -104,7 +104,6 @@ public class ticketDAOImpl implements ticketDAO{
 			
 			if (rs.next()) {
 				ticket = new Ticket();
-				ticket.setTicketId(rs.getInt("ticket_id "));
 				ticket.setDni(rs.getInt("dni"));
 				ticket.setCantidad(rs.getInt("cantidad"));
 				ticket.setCategoria(rs.getString("categoria"));

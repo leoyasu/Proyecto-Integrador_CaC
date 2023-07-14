@@ -120,10 +120,12 @@ public class personaDAOImpl implements personaDAO {
 		try {
 			conn = getConexion();
 			stmt = conn.prepareStatement(UPDATE);
-			stmt.setInt(1, persona.getDni());
-			stmt.setString(2, persona.getNombre());
-			stmt.setString(3, persona.getApellido());
-			stmt.setString(4, persona.getCorreo());
+			stmt.setInt(4, persona.getDni());
+			stmt.setString(1, persona.getNombre());
+			stmt.setString(2, persona.getApellido());
+			stmt.setString(3, persona.getCorreo());
+			
+			 System.out.println(stmt.toString());
 			
 			int result = stmt.executeUpdate();
 			
