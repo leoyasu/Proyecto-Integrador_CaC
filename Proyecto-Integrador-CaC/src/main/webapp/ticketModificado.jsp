@@ -12,6 +12,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styleCompra.css">
     <title>Codo a Codo</title>
+    <style>
+		#footer {
+		position: relative;
+		} 
+	</style>
 </head>
 <body>
 	<header>
@@ -58,14 +63,33 @@
 			Persona persona = new Persona(dni, nombre, apellido, correo);
 					
 			if (personaDAOimpl.update(persona)) {
-				%> <p>Actualizacion exitosa!</p> <%
+				%>
+				<div style="margin-top: 150px;" class="container">
+				  <div class="row justify-content-center">
+				    <div class="col-md-6 text-center">
+				      <h1>Actualización exitosa!</h1>
+				      <button type="button" onclick="redirigirOrigen()" class="btn green-btn">Volver</button>
+				    </div>
+				  </div>
+				</div>
+				<%
 			} else {
-				%> <p>Actualizacion no exitosa!</p> <% 
+				%> 
+				<div style="margin-top: 150px;" class="container">
+				  <div class="row justify-content-center">
+				    <div class="col-md-6 text-center">
+				      <h1>Actualización no exitosa. Revise sus datos!</h1>
+				      <button type="button" onclick="redirigirOrigen()" class="btn btn-danger">Volver</button>
+				    </div>
+				  </div>
+				</div> 
+				<% 
 			}
 		%>
 	</main>
 	
-	<footer class="footer text-light py-3">
+	<div id="footer">
+		<footer class="footer fixed-bottom text-light py-3">
         <div class="container justify-content-center">
           <div class="row">
             <div class="col-12">
@@ -82,6 +106,12 @@
           </div>
         </div>
     </footer>
+	</div>
+	<script>
+    function redirigirOrigen() {
+        window.location.href = "modificarTickets.jsp";
+    }
+	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 </html>
