@@ -125,8 +125,6 @@ public class personaDAOImpl implements personaDAO {
 			stmt.setString(2, persona.getApellido());
 			stmt.setString(3, persona.getCorreo());
 			
-			 System.out.println(stmt.toString());
-			
 			int result = stmt.executeUpdate();
 			
 			if (result==0) {
