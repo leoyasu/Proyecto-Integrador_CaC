@@ -4,6 +4,7 @@
 <%@ page import="com.proyectointegrador.entidad.Persona" %>
 <%@ page import="com.proyectointegrador.entidad.Ticket" %>
 <%@ page import="com.proyectointegrador.dao.ticketDAOImpl" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -120,7 +121,11 @@
 				          <div class="row justify-content-center">
 				            <div class="col-sm-6 col-md-4 mb-3">
 				              <label for="fecha">Fecha:</label>
-				              <input type="text" class="form-control" readonly value="<%= ticket.getFecha() %>" />
+				              <%
+				              	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+				              	String formattedTimestamp = format.format(ticket.getFecha());
+				              %>
+				              <input type="text" class="form-control" readonly value="<%= formattedTimestamp %>" />
 				            </div>
 				            <div class="col-sm-6 col-md-4 mb-3">
 				              <label for="total">Monto total:</label>
