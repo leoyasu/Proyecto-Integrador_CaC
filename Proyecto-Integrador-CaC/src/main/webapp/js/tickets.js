@@ -29,7 +29,9 @@ btnReset.addEventListener("click",resetearFormulario);
 }
 
 const modbtn = document.getElementById('modbtn');
+if (modbtn !== null){
 modbtn.addEventListener("click",validarFormularioMod);
+}
 
 function validarFormulario(){
 

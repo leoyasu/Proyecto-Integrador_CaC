@@ -16,6 +16,9 @@
 		  text-align: center;
 		  margin-top: 30px; 
 		}
+		#footer {
+		position: relative;
+		} 
 	</style>
     <title>Codo a Codo</title>
 </head>
@@ -63,7 +66,7 @@
 			
 			if (persona==null) {
 				%>
-				<div class="container">
+				<div style="margin-top: 150px;" class="container">
 				  <div class="row justify-content-center">
 				    <div class="col-md-6 text-center">
 				      <h1>DNI no encontrado!</h1>
@@ -136,7 +139,7 @@
 				        <div class="container">
 						  <div class="row justify-content-center">
 						    <div class="col-md-6 text-center">
-						      <div style="margin: 20px;" id="bajaTicket">
+						      <div style="margin: 60px;" id="bajaTicket">
 						        <form id="formBaja" action="bajaTickets.jsp" method="post">
 						          <input type="hidden" id="inputDNI2" name="inputDNI2" class="form-control" readonly value="<%= persona.getDni() %>" />
 						          <button type="submit" id="bajabtn" class="btn btn-secondary">Botón de arrepentimiento</button>
@@ -153,8 +156,8 @@
 			}	
 		%>
 	</main>
-	
-	<footer class="footer text-light py-3">
+	<div id="footer">
+		<footer class="footer fixed-bottom text-light py-3">
         <div class="container justify-content-center">
           <div class="row">
             <div class="col-12">
@@ -171,6 +174,7 @@
           </div>
         </div>
     </footer>
+	</div>
     <script src="./js/tickets.js"></script>
     <script>
     function redirigirOrigen() {
