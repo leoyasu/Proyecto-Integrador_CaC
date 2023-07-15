@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.proyectointegrador.dao.personaDAOImpl" %>
 <%@ page import="com.proyectointegrador.entidad.Persona" %>
 <%@ page import="com.proyectointegrador.entidad.Ticket" %>
@@ -46,7 +45,7 @@
                         <a class="nav-link" href="#">El lugar y la fecha</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link">ConviÈrtete en orador</a>
+                        <a class="nav-link">Convi√©rtete en orador</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link text-success" href="compra.html">Comprar tickets</a>
@@ -87,7 +86,7 @@
 				    <div class="col-md-8">
 				      <h1 class="text-center">Datos del Ticket:</h1>
 				      <div id="segundoForm">
-				        <form method="post" action="ticketModificado.jsp" class="mt-4">
+				        <form method="post" id="segundoFormMod" action="ticketModificado.jsp" class="mt-4">
 				          <div class="row justify-content-center">
 				            <div class="col-sm-6 col-md-4 mb-3">
 				              <label for="inputNombre">Nombre:</label>
@@ -137,7 +136,7 @@
 						        <button type="button" onclick="redirigirOrigen()" class="btn btn-block green-btn">Volver</button>
 						    </div>
 						    <div class="col-sm-3 row justify-content-center" style="margin-left: 10px;">
-						        <button type="submit" id="modbtn" class="btn btn-block green-btn">Modificar</button>
+						        <button type="button" id="modbtn" class="btn btn-block green-btn">Modificar</button>
 						    </div>
 						</div>
 				        </form>
@@ -148,7 +147,7 @@
 						        <form id="formBaja" action="bajaTickets.jsp" method="post">
 						          <input type="hidden" id="inputDNI2" name="inputDNI2" class="form-control" readonly value="<%= persona.getDni() %>" />
 						        </form>
-						        <button onclick="confirmarBaja()" id="bajabtn" class="btn btn-secondary">BotÛn de arrepentimiento</button>
+						        <button onclick="confirmarBaja()" id="bajabtn" class="btn btn-secondary">Bot√≥n de arrepentimiento</button>
 						      </div>
 						    </div>
 						  </div>
@@ -168,10 +167,10 @@
             <div class="col-12">
               <ul class="list-inline mb-0 d-flex">
                 <li class="list-inline-item"><a href="#">Preguntas frecuentes</a></li>
-                <li class="list-inline-item"><a href="#">Cont·ctanos</a></li>
+                <li class="list-inline-item"><a href="#">Cont√°ctanos</a></li>
                 <li class="list-inline-item"><a href="#">Prensa</a></li>
                 <li class="list-inline-item"><a href="#">Conferencias</a></li>
-                <li class="list-inline-item"><a href="#">TÈrminos y condiciones</a></li>
+                <li class="list-inline-item"><a href="#">T√©rminos y condiciones</a></li>
                 <li class="list-inline-item"><a href="#">Privacidad</a></li>
                 <li class="list-inline-item"><a href="#">Estudiantes</a></li>
               </ul>

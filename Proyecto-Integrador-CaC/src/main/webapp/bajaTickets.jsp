@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.proyectointegrador.dao.personaDAOImpl" %>
 <%@ page import="com.proyectointegrador.entidad.Persona" %>
 <%@ page import="com.proyectointegrador.entidad.Ticket" %>
@@ -11,6 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styleCompra.css">
+    <style>
+		#footer {
+		position: relative;
+		} 
+	</style>
     <title>Codo a Codo</title>
 </head>
 <body>
@@ -36,7 +40,7 @@
                         <a class="nav-link" href="#">El lugar y la fecha</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link">ConviÈrtete en orador</a>
+                        <a class="nav-link">Convi√©rtete en orador</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link text-success">Comprar tickets</a>
@@ -56,23 +60,41 @@
 		ticketDAOImpl ticketDAOImpl = new ticketDAOImpl();
 		
 		if (ticketDAOImpl.delete(dni) && personaDAOimpl.delete(dni)) {
-			%> <p>Delete exitoso!</p> <%
+			%>
+				<div style="margin-top: 150px;" class="container">
+				  <div class="row justify-content-center">
+				    <div class="col-md-6 text-center">
+				      <h1>Cancelaci√≥n tickets exitosa!</h1>
+				      <button type="button" onclick="redirigirOrigen()" class="btn green-btn">Volver</button>
+				    </div>
+				  </div>
+				</div> 
+			<%
 		} else {
-			%> <p>Delete no exitoso!</p> <% 
+			%> <div style="margin-top: 150px;" class="container">
+				  <div class="row justify-content-center">
+				    <div class="col-md-6 text-center">
+				      <h1>Cancelaci√≥n no tickets exitosa. Revise sus datos!</h1>
+				      <button type="button" onclick="redirigirOrigen()" class="btn btn-danger">Volver</button>
+				    </div>
+				  </div>
+				</div>  
+			<% 
 		}
 		%>
 	</main>
 	
-	<footer class="footer text-light py-3">
+	<div id="footer">
+		<footer class="footer fixed-bottom text-light py-3">
         <div class="container justify-content-center">
           <div class="row">
             <div class="col-12">
               <ul class="list-inline mb-0 d-flex">
                 <li class="list-inline-item"><a href="#">Preguntas frecuentes</a></li>
-                <li class="list-inline-item"><a href="#">Cont·ctanos</a></li>
+                <li class="list-inline-item"><a href="#">Cont√°ctanos</a></li>
                 <li class="list-inline-item"><a href="#">Prensa</a></li>
                 <li class="list-inline-item"><a href="#">Conferencias</a></li>
-                <li class="list-inline-item"><a href="#">TÈrminos y condiciones</a></li>
+                <li class="list-inline-item"><a href="#">T√©rminos y condiciones</a></li>
                 <li class="list-inline-item"><a href="#">Privacidad</a></li>
                 <li class="list-inline-item"><a href="#">Estudiantes</a></li>
               </ul>
@@ -80,6 +102,12 @@
           </div>
         </div>
     </footer>
+	</div>
+    <script>
+    function redirigirOrigen() {
+        window.location.href = "modificarTickets.jsp";
+    }
+	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 </html>

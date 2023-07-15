@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.proyectointegrador.dao.personaDAOImpl" %>
 <%@ page import="com.proyectointegrador.dao.ticketDAOImpl" %>
 <%@ page import="com.proyectointegrador.entidad.Persona" %>
@@ -25,28 +24,8 @@
 	String cantidad = request.getParameter("inputCantidadCompra");
 	String categoria = request.getParameter("inputCategoriaCompra");
 	String monto = request.getParameter("totalApagarCompras");
-	
-	Persona persona = new Persona();
-	persona.setDni(Integer.parseInt(dni));
-	persona.setNombre(nombre);
-	persona.setApellido(apellido);
-	persona.setCorreo(correo);
-	
 	personaDAOImpl personaDAOimpl = new personaDAOImpl();
-	boolean personaInsertSuccess = personaDAOimpl.insert(persona);
-	
-	Ticket ticket = new Ticket();
-	ticket.setDni(Integer.parseInt(dni));
-	ticket.setCantidad(Integer.parseInt(cantidad));
-    ticket.setCategoria(categoria);
-    Date currentDate = new Date();
-    Timestamp timestamp = new Timestamp(currentDate.getTime());
-    ticket.setFecha(timestamp);
-	ticket.setMonto(Integer.parseInt(monto));
-	ticket.setEstado(true);
-	
-	ticketDAOImpl ticketDAOImpl = new ticketDAOImpl();
-	boolean ticketInsertSuccess = ticketDAOImpl.insert(ticket);
+	ticketDAOImpl ticketDAOImpl = new ticketDAOImpl();	
 %>
 
 	<header>
@@ -71,10 +50,10 @@
                         <a class="nav-link" href="#">El lugar y la fecha</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link">ConviÈrtete en orador</a>
+                        <a class="nav-link">Convi√©rtete en orador</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link text-success">Comprar tickets</a>
+                        <a class="nav-link text-success" href="compra.html">Comprar tickets</a>
                       </li>
                   </ul>
                 </div>
@@ -82,17 +61,67 @@
         </nav>
     </header>
 	
-	<main style="margin-top: 172px;">
+	<main style="margin-top: 80px;">
 	    <div class="container">
-	        <% if (personaInsertSuccess && ticketInsertSuccess) { %>
-	        <div id="alertInsert" class="alert alert-success text-center" role="alert">
-	            <p>Los tickets han sido comprados con Èxito!</p>
-	        </div>
-	        <% } else { %>
-	        <div id="alertInsert" class="alert alert-danger text-center" role="alert">
-	            <p>Hubo un error en la compra de tickets. Revise sus datos.</p>
-	        </div>
-	        <% } %>
+	        <% 
+	    	
+	    	if (personaDAOimpl.getPersonaByDni(Integer.parseInt(dni)) == null) {
+	    		Persona persona = new Persona();
+	    		persona.setDni(Integer.parseInt(dni));
+	    		persona.setNombre(nombre);
+	    		persona.setApellido(apellido);
+	    		persona.setCorreo(correo);
+	    		boolean personaInsertSuccess = personaDAOimpl.insert(persona);
+	    		
+	    		Ticket ticket = new Ticket();
+	    		ticket.setDni(Integer.parseInt(dni));
+	    		ticket.setCantidad(Integer.parseInt(cantidad));
+	    	    ticket.setCategoria(categoria);
+	    	    Date currentDate = new Date();
+	    	    Timestamp timestamp = new Timestamp(currentDate.getTime());
+	    	    ticket.setFecha(timestamp);
+	    		ticket.setMonto(Integer.parseInt(monto));
+	    		ticket.setEstado(true);
+	    		boolean ticketInsertSuccess = ticketDAOImpl.insert(ticket);
+	    		
+	    		 if (personaInsertSuccess && ticketInsertSuccess) { %>
+	 	        <div id="alertInsert" class="alert alert-success text-center" role="alert">
+	 	            <div style="margin-top: 80px;" class="container">
+	 				  <div class="row justify-content-center">
+	 				    <div class="col-md-6 text-center">
+	 				      <h1>Los tickets han sido comprados con √©xito!</h1>
+	 				      <button type="button" onclick="redirigirOrigen()" class="btn green-btn">Volver</button>
+	 				    </div>
+	 				  </div>
+	 				</div>  
+	 	        </div>
+	 	        <% } else { %>
+	 	        <div id="alertInsert" class="alert alert-danger text-center" role="alert">
+	 	            <div class="container">
+	 				  <div class="row justify-content-center">
+	 				    <div class="col-md-6 text-center">
+	 				      <h1>Los tickets no han sido comprados con √©xito, revise sus datos ingresados!</h1>
+	 				      <button type="button" onclick="redirigirOrigen()" class="btn green-btn">Volver</button>
+	 				    </div>
+	 				  </div>
+	 				</div> 
+	 	        </div>
+	 	        <% }
+	    	} else {
+	    		%>
+	 	        <div id="alertInsert" class="alert alert-danger text-center" role="alert">
+	 	            <div class="container">
+	 				  <div class="row justify-content-center">
+	 				    <div class="col-md-6 text-center">
+	 				      <h1>Los tickets no han sido comprados con √©xito, revise sus datos ingresados!</h1>
+	 				      <button type="button" onclick="redirigirOrigen()" class="btn green-btn">Volver</button>
+	 				    </div>
+	 				  </div>
+	 				</div> 
+	 	        </div>
+	 	        <%
+	    	}
+	       %>
 	    </div>
 	</main>
     
@@ -102,10 +131,10 @@
             <div class="col-12">
               <ul class="list-inline mb-0 d-flex">
                 <li class="list-inline-item"><a href="#">Preguntas frecuentes</a></li>
-                <li class="list-inline-item"><a href="#">Cont·ctanos</a></li>
+                <li class="list-inline-item"><a href="#">Cont√°ctanos</a></li>
                 <li class="list-inline-item"><a href="#">Prensa</a></li>
                 <li class="list-inline-item"><a href="#">Conferencias</a></li>
-                <li class="list-inline-item"><a href="#">TÈrminos y condiciones</a></li>
+                <li class="list-inline-item"><a href="#">T√©rminos y condiciones</a></li>
                 <li class="list-inline-item"><a href="#">Privacidad</a></li>
                 <li class="list-inline-item"><a href="#">Estudiantes</a></li>
               </ul>
@@ -113,6 +142,11 @@
           </div>
         </div>
     </footer>
+    <script>
+    function redirigirOrigen() {
+        window.location.href = "modificarTickets.jsp";
+    }
+	</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 </html>

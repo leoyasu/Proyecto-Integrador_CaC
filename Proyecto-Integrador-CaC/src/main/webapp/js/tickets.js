@@ -1,3 +1,4 @@
+
 var nombre = document.getElementById("inputNombre");
 var apellido = document.getElementById("inputApellido");
 var correo = document.getElementById("inputCorreo");
@@ -141,7 +142,8 @@ if (document.getElementById('cancelarButton') !== null) {
 }
 
 
-function validarFormularioMod(){
+function validarFormularioMod(event){
+	event.preventDefault();
 
   if (contieneNumeros(nombre.value) || !nombre.value) {
     alert("Ingrese un nombre válido");
@@ -160,6 +162,6 @@ function validarFormularioMod(){
     correo.focus();
     return false;
   }
-
+	document.getElementById("segundoFormMod").submit();
 	return true;
 }

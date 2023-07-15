@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.proyectointegrador.dao.personaDAOImpl" %>
 <%@ page import="com.proyectointegrador.entidad.Persona" %>
 <!DOCTYPE html>
@@ -39,7 +38,7 @@
                         <a class="nav-link" href="#">El lugar y la fecha</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link">ConviÈrtete en orador</a>
+                        <a class="nav-link">Convi√©rtete en orador</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link text-success" href="compra.html">Comprar tickets</a>
@@ -55,7 +54,7 @@
 		  <div class="row justify-content-center">
 		    <div class="col-md-6">
 		      <div class="container-form-modificar">
-		        <h1 class="mt-5">Consultar InformaciÛn de Tickets</h1>
+		        <h1 class="mt-5">Consultar Informaci√≥n de Tickets</h1>
 		        <div id="primerFormCont">
 		          <form method="post" id="primerForm" class="mt-4" action="modificarTicketsEnviado.jsp">
 		            <div class="form-group">
@@ -77,10 +76,10 @@
             <div class="col-12">
               <ul class="list-inline mb-0 d-flex">
                 <li class="list-inline-item"><a href="#">Preguntas frecuentes</a></li>
-                <li class="list-inline-item"><a href="#">Cont·ctanos</a></li>
+                <li class="list-inline-item"><a href="#">Cont√°ctanos</a></li>
                 <li class="list-inline-item"><a href="#">Prensa</a></li>
                 <li class="list-inline-item"><a href="#">Conferencias</a></li>
-                <li class="list-inline-item"><a href="#">TÈrminos y condiciones</a></li>
+                <li class="list-inline-item"><a href="#">T√©rminos y condiciones</a></li>
                 <li class="list-inline-item"><a href="#">Privacidad</a></li>
                 <li class="list-inline-item"><a href="#">Estudiantes</a></li>
               </ul>
